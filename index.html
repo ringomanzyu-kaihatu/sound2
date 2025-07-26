@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音声速度・ピッチ変更アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <!-- Tone.js 読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch(error => console.error('SW error:', error));
+  }
+</script>
+</head>
+<body>
+    <h1>音声速度・ピッチ変更アプリ</h1>
+
+    <div class="controls-group">
+        <input type="file" id="audioFile" accept="audio/*">
+        <div class="button-group">
+            <button id="playButton" disabled>再生</button>
+            <button id="pauseButton" disabled>一時停止</button>
+            <button id="stopButton" disabled>停止</button>
+            <button id="resetButton" disabled>リセット</button>
+        </div>
+    </div>
+
+    <div class="controls-group">
+        <label for="speedSlider">再生速度:</label>
+        <input type="range" id="speedSlider" min="0.5" max="2.0" step="0.01" value="1.0" disabled>
+        <span id="speedValue">1.00x</span>
+    </div>
+
+    <div class="controls-group">
+        <label for="pitchSlider">ピッチ (半音):</label>
+        <input type="range" id="pitchSlider" min="-0.95" max="1.8" step="0.01" value="0" disabled>
+        <span id="pitchValue">0.0半音</span>
+    </div>
+
+    <!-- JavaScriptは最後に読み込む -->
+    <script src="script.js"></script>
+</body>
+</html>

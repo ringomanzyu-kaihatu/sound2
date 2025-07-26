@@ -1,0 +1,144 @@
+/* style.css */
+
+/* BIZUDゴシックのWebフォントを読み込む */
+/* フォントファイル名が BIZUDGothic-Bold.ttf であることを反映 */
+/* 基本色の設定 */
+body {
+  font-family: "BIZ UDGothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+ /* ここで読み込んだフォント名を指定 */
+    margin: 0; /* bodyのデフォルトマージンをリセット */
+    padding: 20px;
+    background-color: #A9A9A9; /* メインの背景色 */
+    color: #F0F0F0; /* 基本の文字色 */
+    display: flex; /* flexboxで中央寄せ */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* 画面いっぱいに広げる */
+    box-sizing: border-box; /* paddingを含めて要素のサイズを計算 */
+}
+
+h1 {
+    color: #DC143C; /* 京王レッド */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em; /* 見出しサイズ調整 */
+}
+
+/* 各コントロールのグループ */
+.controls-group {
+    background-color: #2A2A2A; /* 少し明るい背景で区切る */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%; /* 幅を調整 */
+    max-width: 500px; /* 最大幅を設定 */
+    box-sizing: border-box; /* paddingを含めて要素のサイズを計算 */
+}
+
+/* ボタンのグループ */
+.button-group {
+    display: flex;
+    justify-content: center; /* ボタンを中央に配置 */
+    flex-wrap: wrap; /* ボタンが多ければ折り返す */
+    gap: 10px; /* ボタン間のスペース */
+    margin-top: 15px;
+}
+
+/* ボタンのスタイル */
+button {
+    padding: 12px 25px;
+    background-color: #1A1A1A; /* 背景色に溶け込ませる */
+    color: #F0F0F0;
+    border: 2px solid #DC143C; /* 京王レッドの枠線 */
+    border-radius: 25px; /* 丸みのあるデザイン */
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease; /* ホバー時のアニメーション */
+    flex-grow: 1; /* ボタンの幅を均等に広げる */
+    min-width: 100px; /* 最小幅を設定 */
+}
+
+button:hover:not(:disabled) { /* 有効なボタンのみホバー効果 */
+    background-color: #DC143C; /* ホバーで京王レッドの背景に */
+    color: #1A1A1A; /* 文字色を反転 */
+}
+
+button:disabled {
+    background-color: #36454F; /* 無効化されたボタンの背景色 */
+    border-color: #A0A0A0; /* 無効化されたボタンの枠線 */
+    color: #A0A0A0;
+    cursor: not-allowed;
+}
+
+/* ファイル選択ボタンのスタイル（input[type="file"]はスタイル適用が難しい場合が多い） */
+input[type="file"] {
+    display: block; /* 独立したブロックに */
+    width: calc(100% - 20px); /* 親のpaddingを考慮 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 10px;
+    color: #F0F0F0; /* テキスト色 */
+    background-color: #36454F; /* 背景色 */
+    border: 1px solid #A0A0A0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* スライダー（SeekBar）のスタイル */
+input[type="range"] {
+    -webkit-appearance: none; /* デフォルトのスタイルを無効化 */
+    width: 100%;
+    height: 10px; /* トラックの高さ */
+    background: #36454F; /* トラックの色 */
+    border-radius: 5px; /* トラックの丸み */
+    outline: none;
+    opacity: 0.9;
+    transition: opacity .2s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+/* スライダーのつまみ（thumb）のスタイル */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px; /* つまみの幅 */
+    height: 25px; /* つまみの高さ */
+    background: #DC143C; /* 京王レッド */
+    border: 2px solid #F0F0F0; /* 白い縁取りで目立たせる */
+    border-radius: 50%; /* 完全な円形 */
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #DC143C;
+    border: 2px solid #F0F0F0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* スライダーのラベル */
+label {
+    display: block; /* ラベルを独立した行に */
+    margin-top: 10px; /* 上部の余白調整 */
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #F0F0F0;
+}
+
+/* スライダーの値表示 */
+span {
+    font-weight: bold;
+    color: #DC143C; /* 値の表示も京王レッドに */
+    display: block; /* 新しい行に表示 */
+    text-align: right; /* 右寄せ */
+    margin-top: -5px; /* スライダーとの間隔調整 */
+}
